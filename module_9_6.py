@@ -1,6 +1,3 @@
-from module_9_3 import second
-
-
 def all_variants(text):
     for i in range(len(text)):
         first = 0
