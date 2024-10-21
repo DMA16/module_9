@@ -1,11 +1,22 @@
 def is_prime(func):
     def wrapper(*args):
         sum_ = func(*args)
+        divisor_counter = 0
 
-        if (0 < sum_ <= 3) or (sum_ % 2 != 0 and sum_ % 3 != 0):
-            print("Простое")
+        if sum_ < 2:
+            print("Не является простым или составным числом")
         else:
-            print("Составное")
+            for i in range(1, sum_ + 1):
+                if sum_ % i == 0:
+                    divisor_counter += 1
+
+                if divisor_counter > 2:
+                    break
+
+            if divisor_counter == 2:
+                print("Простое")
+            else:
+                print("Составное")
 
         return sum_
 
@@ -15,5 +26,5 @@ def is_prime(func):
 def sum_three(*nums):
     return sum(nums)
 
-result = sum_three(3, 3, 6)
+result = sum_three(49)
 print(result)
